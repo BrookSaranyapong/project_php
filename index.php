@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,10 +12,21 @@
 <body>
     <?php include('./includes/navbar.php'); ?>
 
-    <h1>Home Page</h1>
- 
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Section Carousel -->
+    <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel">
+        <div class="carousel-inner" style="max-height: 75vh;">
+            <div class="carousel-item active">
+                <img src="./assets/image/Banner.jpg" class="d-block w-100" alt="AppzStory">
+            </div>
+        </div>
+    </div>
+    
+    <main>
 
+    </main>
+
+    <!-- <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->
 </body>
 
 </html>
