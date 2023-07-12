@@ -1,7 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-require_once('./config/connection.php');
+require_once('authen.php');
+
 if (isset($_POST['submit'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
@@ -11,7 +10,7 @@ if (isset($_POST['submit'])) {
     ':username' => $username
   ));
   $row = $stmt->fetch(PDO::FETCH_ASSOC);
-  echo '<pre>', print_r($row), '</pre>';
+  // echo '<pre>', print_r($row), '</pre>';
   // if (!empty($row) && $password == $row['password']) {
   if (!empty($row) && password_verify($password, $row['password'])) {
     echo '<script> alert("ชื่อผู้ใช้ และ รหัสผ่านถูกต้อง") </script>';
@@ -25,7 +24,7 @@ if (isset($_POST['submit'])) {
     $stmt_update = $conn->prepare($update);
     $result_update = $stmt_update->execute(array(":last_login" => date("Y-m-d H:i:s"), ":u_id" => $row['u_id']));
     if ($result_update) {
-      header('Location: index.php');
+      header('Location: home.php');
     } else {
       echo '<script> alert("Error!!!") </script>';
     }
@@ -33,15 +32,16 @@ if (isset($_POST['submit'])) {
     echo '<script> alert("ชื่อผู้ใช้ และ รหัสผ่านไม่ถูกต้อง") </script>';
   }
 
-  if (isset($_SESSION['authen_id'])) {
-    echo 'Session is set!';
-  } else {
-    echo 'Session is not set!';
-  }
-  echo '<pre>', print_r($_POST), '</pre>';
+//   if (isset($_SESSION['authen_id'])) {
+//     // user already logged in, redirect to home.php
+//     echo 'Your have a session';
+// } else {
+//     echo 'Session is not set!';
+//   }
+//   echo '<pre>', print_r($_POST), '</pre>';
 }
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +51,6 @@ if (isset($_POST['submit'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>login</title>
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" class="rel">
-
 </head>
 
 <body>
@@ -75,7 +74,7 @@ if (isset($_POST['submit'])) {
                   </div>
                   <div class="col-12 text-center">
                     <button type="submit" name="submit" class="btn btn-primary mx-auto d-block w-75">เข้าสู่ระบบ</button>
-                    <a class="btn btn-warning my-2" href="../index.php">กลับหน้าหลัก</a>
+                    <a class="btn btn-warning my-2" href="home.php">กลับหน้าหลัก</a>
                     <a class="btn btn-success my-2" href="register.php">สมัครสมาชิก</a>
                   </div>
                 </div>
@@ -87,8 +86,7 @@ if (isset($_POST['submit'])) {
       </row>
     </div>
   </div>
-  <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
