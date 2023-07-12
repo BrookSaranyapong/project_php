@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
 
-  <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" class="rel"> -->
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" class="rel">
 
 </head>
 
@@ -91,8 +91,7 @@ if (isset($_POST['submit'])) {
             </row>
         </div>
     </div>
-    <!-- <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->
-
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
