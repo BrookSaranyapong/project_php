@@ -1,7 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-require_once('./config/connection.php');
+require_once('authen.php');
+
 if (isset($_POST['submit'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
@@ -25,7 +24,7 @@ if (isset($_POST['submit'])) {
     $stmt_update = $conn->prepare($update);
     $result_update = $stmt_update->execute(array(":last_login" => date("Y-m-d H:i:s"), ":u_id" => $row['u_id']));
     if ($result_update) {
-      header('Location: index.php');
+      header('Location: ./home/home.php');
     } else {
       echo '<script> alert("Error!!!") </script>';
     }
@@ -34,14 +33,18 @@ if (isset($_POST['submit'])) {
   }
 
   if (isset($_SESSION['authen_id'])) {
-    echo 'Session is set!';
-  } else {
+    // user already logged in, redirect to home.php
+    echo 'Your have a session';
+} else {
     echo 'Session is not set!';
   }
   echo '<pre>', print_r($_POST), '</pre>';
 }
 
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,8 +53,7 @@ if (isset($_POST['submit'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>login</title>
-  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" class="rel">
-
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" class="rel">
 </head>
 
 <body>
@@ -87,8 +89,7 @@ if (isset($_POST['submit'])) {
       </row>
     </div>
   </div>
-  <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

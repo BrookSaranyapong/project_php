@@ -1,3 +1,4 @@
+<?php $base_path_blog = './assets/images/blog/'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +13,7 @@
     <!-- Section Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="../index.php">car2hand</a>
+            <a class="navbar-brand" href="home.php">car2hand</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,20 +30,20 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="./page/logout.php">ออกจากระบบ</a></li>
+                                <li><a class="dropdown-item" href="logout.php">ออกจากระบบ</a></li>
                             </ul>
                         </li>
                     <?php } else { ?>
                         <li class="nav-item">
-                            <a href="./page/login.php" class="btn btn-primary">เข้าสู่ระบบ</a>
-                            <a href="./page/register.php" class="btn btn-warning">สมัครสมาชิก</a>
+                            <a href="login.php" class="btn btn-primary">เข้าสู่ระบบ</a>
+                            <a href="register.php" class="btn btn-warning">สมัครสมาชิก</a>
                         </li>
                     <?php } ?>
                 </ul>
             </div>
         </div>
     </nav>
-    <?php include('script.php') ?>
+    <?php include('script.php'); ?>
 </body>
 
 </html>

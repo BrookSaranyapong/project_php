@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require_once('./config/connection.php');
+require_once('authen.php');
 
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
         header('Refresh:0; url=login.php');
     } else {
         echo '<script> alert("ลงทะเบียนผิดพลาด!")</script>'; 
-        header('Refresh:0; url=index.php');
+        header('Refresh:0; url=home.php');
     }
     echo '<pre>', print_r($_POST), '</pre>';
 }
@@ -42,27 +42,13 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <?php include('./includes/theme.php'); ?>
+
+  <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" class="rel"> -->
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">car2hand</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a href="login.php" class="btn btn-primary">เข้าสู่ระบบ</a>
-                        <a href="register.php" class="btn btn-warning">สมัครสมาชิก</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php include('./includes/navbar.php'); ?>
 
     <div class="d-flex align-items-center min-vh-100">
         <div class="container">
@@ -105,7 +91,7 @@ if (isset($_POST['submit'])) {
             </row>
         </div>
     </div>
-    <?php include('./includes/script.php'); ?>
+    <!-- <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->
 
 </body>
 
