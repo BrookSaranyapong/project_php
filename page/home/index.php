@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
-    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" class="rel">
+    <?php require_once('../includes/theme.php') ?>
 </head>
 
 <body>
@@ -21,11 +21,10 @@
         </div>
     </div>
 
-    <main class="container my-5">
-        <h1>Home</h1>
+    <main class="container-fuild">
+        <h1 class="text-center">Home</h1>
     </main>
-
-    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <?php require_once('../includes/script.php') ?>
 </body>
 
 </html>
