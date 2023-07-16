@@ -12,9 +12,5 @@
       header('Location: /project_car2hand/page/home'); // Change this to your desired page
       exit;
    }   
-   // else if( $name == 'admin' && $_SESSION['role'] == 'admin') {
-   //       header('Location: ../dashboard/');  
-   //    }else if( $name == 'admin' && $_SESSION['role'] == 'user') {
-   //       header('Location: ../dashboard/');  
-   //    }
+
 ?>
