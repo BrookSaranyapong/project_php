@@ -3,11 +3,11 @@
 
     $id = $_GET['id'];
     if (isset($id) && $id != 1) {
-        $sql = "DELETE FROM `admin` WHERE `admin`.`id` = '".$id."' ";
-        $result = $conn->query($sql);
-        $sql1 = "DELETE FROM `profile` WHERE `profile`.`p_id` = '".$id."' ";
-        $result = $conn->query($sql1);
-        if($conn->affected_rows){
+        $sql = "DELETE FROM `user` WHERE `admin`.`id` = ? ";
+        $result = $conn->prepare($sql);
+        $result->execute([$id]);
+        
+        if($conn->$result->rowCount() > 0){
             echo '<script> alert("Finished Deleting!")</script>'; 
             header('Refresh:0; url=index.php');
         } else {

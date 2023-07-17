@@ -71,10 +71,15 @@
             <thead>
             <tr>
               <th>No.</th>
+              <th>image</th>
               <th>Username</th>
+              <th>Password</th>
               <th>Permission</th>
               <th>ชื่อ</th>
               <th>นามสกุล</th>
+              <th>ที่อยู่</th>
+              <th>Tel.</th>
+              <th>Email</th>
               <th>Actions</th>
               
             </tr>
@@ -87,17 +92,21 @@
             ?>
               <tr>
                 <td><?php echo $num; ?></td>
-                <!-- <td><img class="img-fluid d-block mx-auto" src="../../../assets/images/imageMember/<?php //  echo $row['a_image'] ?>" width="100px" alt=""></td> -->
+                <td><img class="img-fluid d-block mx-auto" src="../../../assets/images/imageMember/<?php echo $row['a_image'] ?>" width="100px" alt=""></td>
                 <td><?php echo $row['username']; ?></td>
-                <td><span class="badge badge-primary"><?php echo $row['role']; ?></span></td>
+                <td><?php echo $row['password']; ?></td>
+                <td><span class="badge badge-primary"><?php echo $row['status']; ?></span></td>
                 <td><?php echo $row['first_name']; ?></td>
                 <td><?php echo $row['last_name']; ?></td>
+                <td><?php echo $row['p_Address']; ?></td>
+                <td><?php echo $row['p_Phone']; ?></td>
+                <td><?php echo $row['p_Email']; ?></td>
                 <td>
-                  <a href="form-edit.php?id=<?php echo $row['u_id']; ?>" class="btn btn-sm btn-warning text-white">
+                  <a href="form-edit.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning text-white">
                     <i class="fas fa-edit"></i>
                   </a>
-                  <?php if($row['u_id'] != 1) {  ?>
-                      <a href="#" onclick="deleteItem(<?php echo $row['u_id']; ?>);" class="btn btn-sm btn-danger">
+                  <?php if($row['id'] != 1) {  ?>
+                      <a href="#" onclick="deleteItem(<?php echo $row['id']; ?>);" class="btn btn-sm btn-danger">
                             <i class="fas fa-trash-alt"></i>
                       </a>
                   <?php } ?>
@@ -141,7 +150,6 @@
 <script>
   $(function () {
     $('#dataTable').DataTable({
-      responsive: true,
       "paging": true,
       "lengthChange": true,
       "searching": true,
