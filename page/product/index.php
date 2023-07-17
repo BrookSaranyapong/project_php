@@ -130,7 +130,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item">
+
+                            <!-- <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingThree">
                                     <button class="accordion-button text-dark bg-light" type="button" data-mdb-toggle="collapse" data-mdb-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
                                         Size
@@ -148,50 +149,10 @@
                                         <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check4">XXL</label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button text-dark bg-light" type="button" data-mdb-toggle="collapse" data-mdb-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
-                                        Ratings
-                                    </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show" aria-labelledby="headingThree">
-                                    <div class="accordion-body">
-                                        <!-- Default checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked />
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                            </label>
-                                        </div>
-                                        <!-- Default checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked />
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-secondary"></i>
-                                            </label>
-                                        </div>
-                                        <!-- Default checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked />
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-secondary"></i>
-                                                <i class="fas fa-star text-secondary"></i>
-                                            </label>
-                                        </div>
-                                        <!-- Default checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked />
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-secondary"></i><i class="fas fa-star text-secondary"></i>
-                                                <i class="fas fa-star text-secondary"></i>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div> -->
+
+                            
+                            
                         </div>
                     </div>
                 </div>
@@ -221,124 +182,124 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-6 d-flex">
                             <div class="card w-100 my-2 shadow-2-strong">
-                                <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/10.webp" class="card-img-top" />
+                                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" />
                                 <div class="card-body d-flex flex-column">
                                     <div class="d-flex flex-row">
-                                        <h5 class="mb-1 me-1">$34,50</h5>
-                                        <span class="text-danger"><s>$49.99</s></span>
+                                        <span class="text-danger"><s>$30000.99</s></span>
                                     </div>
-                                    <p class="card-text">T-shirts with multiple colors, for men and lady</p>
-                                    <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum in voluptas et illum recusandae rem numquam asperiores exercitationem, minus explicabo quas architecto sit magni odit, saepe quasi ipsam necessitatibus molestiae.</p>
+                                    <!-- <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
                                         <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
                                         <a href="#!" class="btn btn-light border icon-hover px-2 pt-2"><i class="fas fa-heart fa-lg text-secondary px-1"></i></a>
-                                    </div>
+                                    </div> -->
+                                    <h5 class="mb-1 me-1">$25000</h5>
+
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 d-flex">
                             <div class="card w-100 my-2 shadow-2-strong">
-                                <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/11.webp" class="card-img-top" />
+                                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" />
                                 <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">$120.00</h5>
-                                    <p class="card-text">Winter Jacket for Men and Women, All sizes</p>
-                                    <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                    <div class="d-flex flex-row">
+                                        <span class="text-danger"><s>$30000.99</s></span>
+                                    </div>
+                                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum in voluptas et illum recusandae rem numquam asperiores exercitationem, minus explicabo quas architecto sit magni odit, saepe quasi ipsam necessitatibus molestiae.</p>
+                                    <!-- <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
                                         <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
                                         <a href="#!" class="btn btn-light border icon-hover px-2 pt-2"><i class="fas fa-heart fa-lg text-secondary px-1"></i></a>
-                                    </div>
+                                    </div> -->
+                                    <h5 class="mb-1 me-1">$25000</h5>
+
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 d-flex">
                             <div class="card w-100 my-2 shadow-2-strong">
-                                <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/12.webp" class="card-img-top" />
+                                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" />
                                 <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">$120.00</h5>
-                                    <p class="card-text">T-shirts with multiple colors, for men and lady</p>
-                                    <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                    <div class="d-flex flex-row">
+                                        <span class="text-danger"><s>$30000.99</s></span>
+                                    </div>
+                                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum in voluptas et illum recusandae rem numquam asperiores exercitationem, minus explicabo quas architecto sit magni odit, saepe quasi ipsam necessitatibus molestiae.</p>
+                                    <!-- <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
                                         <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
                                         <a href="#!" class="btn btn-light border icon-hover px-2 pt-2"><i class="fas fa-heart fa-lg text-secondary px-1"></i></a>
-                                    </div>
+                                    </div> -->
+                                    <h5 class="mb-1 me-1">$25000</h5>
+
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 d-flex">
                             <div class="card w-100 my-2 shadow-2-strong">
-                                <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/13.webp" class="card-img-top" style="aspect-ratio: 1 / 1" />
+                                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" />
                                 <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">$120.00</h5>
-                                    <p class="card-text">Blazer Suit Dress Jacket for Men, Blue color</p>
-                                    <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                    <div class="d-flex flex-row">
+                                        <span class="text-danger"><s>$30000.99</s></span>
+                                    </div>
+                                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum in voluptas et illum recusandae rem numquam asperiores exercitationem, minus explicabo quas architecto sit magni odit, saepe quasi ipsam necessitatibus molestiae.</p>
+                                    <!-- <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
                                         <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
                                         <a href="#!" class="btn btn-light border icon-hover px-2 pt-2"><i class="fas fa-heart fa-lg text-secondary px-1"></i></a>
-                                    </div>
+                                    </div> -->
+                                    <h5 class="mb-1 me-1">$25000</h5>
+
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 d-flex">
                             <div class="card w-100 my-2 shadow-2-strong">
-                                <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/14.webp" class="card-img-top" style="aspect-ratio: 1 / 1" />
+                                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" />
                                 <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">$510.00</h5>
-                                    <p class="card-text">Slim sleeve wallet Italian leather - multiple colors</p>
-                                    <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                    <div class="d-flex flex-row">
+                                        <span class="text-danger"><s>$30000.99</s></span>
+                                    </div>
+                                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum in voluptas et illum recusandae rem numquam asperiores exercitationem, minus explicabo quas architecto sit magni odit, saepe quasi ipsam necessitatibus molestiae.</p>
+                                    <!-- <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
                                         <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
                                         <a href="#!" class="btn btn-light border icon-hover px-2 pt-2"><i class="fas fa-heart fa-lg text-secondary px-1"></i></a>
-                                    </div>
+                                    </div> -->
+                                    <h5 class="mb-1 me-1">$25000</h5>
+
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 d-flex">
                             <div class="card w-100 my-2 shadow-2-strong">
-                                <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/10.webp" class="card-img-top" />
+                                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" />
                                 <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">$79.99</h5>
-                                    <p class="card-text">T-shirts with multiple colors, for men and lady</p>
-                                    <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                    <div class="d-flex flex-row">
+                                        <span class="text-danger"><s>$30000.99</s></span>
+                                    </div>
+                                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum in voluptas et illum recusandae rem numquam asperiores exercitationem, minus explicabo quas architecto sit magni odit, saepe quasi ipsam necessitatibus molestiae.</p>
+                                    <!-- <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
                                         <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
                                         <a href="#!" class="btn btn-light border icon-hover px-2 pt-2"><i class="fas fa-heart fa-lg text-secondary px-1"></i></a>
-                                    </div>
+                                    </div> -->
+                                    <h5 class="mb-1 me-1">$25000</h5>
+
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 d-flex">
                             <div class="card w-100 my-2 shadow-2-strong">
-                                <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/11.webp" class="card-img-top" />
+                                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" />
                                 <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">$120.00</h5>
-                                    <p class="card-text">Winter Jacket for Men and Women, All sizes</p>
-                                    <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                    <div class="d-flex flex-row">
+                                        <span class="text-danger"><s>$30000.99</s></span>
+                                    </div>
+                                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum in voluptas et illum recusandae rem numquam asperiores exercitationem, minus explicabo quas architecto sit magni odit, saepe quasi ipsam necessitatibus molestiae.</p>
+                                    <!-- <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
                                         <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
                                         <a href="#!" class="btn btn-light border icon-hover px-2 pt-2"><i class="fas fa-heart fa-lg text-secondary px-1"></i></a>
-                                    </div>
+                                    </div> -->
+                                    <h5 class="mb-1 me-1">$25000</h5>
+
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 d-flex">
-                            <div class="card w-100 my-2 shadow-2-strong">
-                                <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/12.webp" class="card-img-top" />
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">$120.00</h5>
-                                    <p class="card-text">T-shirts with multiple colors, for men and lady</p>
-                                    <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-                                        <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
-                                        <a href="#!" class="btn btn-light border icon-hover px-2 pt-2"><i class="fas fa-heart fa-lg text-secondary px-1"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 d-flex">
-                            <div class="card w-100 my-2 shadow-2-strong">
-                                <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/9.webp" class="card-img-top" />
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">$43.50</h5>
-                                    <p class="card-text">Summer New Men's Denim Jeans Shorts</p>
-                                    <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-                                        <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
-                                        <a href="#!" class="btn btn-light border icon-hover px-2 pt-2"><i class="fas fa-heart fa-lg text-secondary px-1"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
 
                     <hr />

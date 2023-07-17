@@ -135,7 +135,7 @@
             <div class="small-box bg-warning">
               <div class="inner">
                 <h3>30<?php // echo $rowsarticles; ?></h3>
-                <p>ข่าวสาร/กิจกรรม</p>
+                <p>ข่าวสาร/ล่าสุด</p>
               </div>
               <div class="icon">
                 <i class="my-2 fas fa-images"></i>

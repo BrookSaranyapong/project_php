@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
         echo '<script> alert("ลงทะเบียนเรียบร้อยแล้ว") </script>';
         header('Refresh:0; url=login.php');
     } else {
-        echo '<script> alert("ลงทะเบียนผิดพลาด!")</script>'; 
+        echo '<script> alert("ลงทะเบียนผิดพลาด!")</script>';
         header('Refresh:0; url=home.php');
     }
     echo '<pre>', print_r($_POST), '</pre>';
@@ -43,7 +43,8 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
 
-  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" class="rel">
+    <?php require_once("./includes/theme.php"); ?>
+    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" class="rel"> -->
 
 </head>
 
@@ -59,9 +60,10 @@ if (isset($_POST['submit'])) {
                         <div class="card-body">
                             <form method="POST">
                                 <div class="row g-3">
+
                                     <div class="col-6">
                                         <label for="name" class="col-form-label">ชื่อ : </label>
-                                        <input type="text" id="name" name="first_name" class="form-control" placeholder="name" required>
+                                        <input type="text" id="name" name="first_name" class="form-control" placeholder="Name" required>
                                     </div>
                                     <div class="col-6">
                                         <label for="surname" class="col-form-label">นามสกุล : </label>
@@ -77,21 +79,41 @@ if (isset($_POST['submit'])) {
                                     </div>
                                     <div class="col-12">
                                         <label for="confirm_password" class="col-form-label">ยืนยันรหัสผ่าน : </label>
-                                        <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Confirm Password" required>
+                                        <input type="password" id="confirm_password" class="form-control" placeholder="Confirm Password" required>
                                     </div>
+                                    <div class="col-12">
+                                        <label for="number" class="col-form-label">รหัสบัตรประชาชน : </label>
+                                        <input type="text" id="cus_id" name="cus_id" class="form-control" placeholder="13 หลัก" required>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="email" class="col-form-label">อีเมล : </label>
+                                        <input type="text" id="email" name="email" class="form-control" placeholder="Email" required>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="phone" class="col-form-label">เบอร์โทรศัพท์ : </label>
+                                        <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="address">ที่อยู่</label>
+                                        <textarea class="form-control" name="address" id="Address" rows="10" placeholder="Address" required></textarea>
+                                    </div>
+
                                     <div class="col-12 text-center">
                                         <button type="submit" name="submit" class="btn btn-primary mx-auto d-block w-75">สมัครสมาชิก</button>
                                     </div>
                                 </div>
-
                             </form>
+                            <a href="/project_car2hand/page/login.php" type="submit" name="submit" class="my-2 btn btn-success mx-auto d-block w-75">กลับไปหน้าล็อกอิน</a>
+
                         </div>
                     </div>
                 </div>
             </row>
         </div>
     </div>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <?php require_once("./includes/script.php"); ?>
+
+    <!-- <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->
 </body>
 
 </html>

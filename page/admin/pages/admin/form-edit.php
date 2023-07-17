@@ -5,9 +5,11 @@
   }
 
 
-  $sql = "SELECT * FROM `admin` AS a INNER JOIN `profile` AS pr ON a.profile_id = pr.p_id WHERE a.id = '".$id."' ";
-  $result = $conn->query($sql);
-  $row = $result->fetch_assoc();
+  // $sql = "SELECT * FROM `user` AS a INNER JOIN `profile` AS pr ON a.profile_id = pr.p_id WHERE a.id = '".$id."' ";
+  $sql = "SELECT * FROM `user` WHERE u_id = :id ";
+  $result = $conn->prepare($sql);
+  $result->execute(array(":id" => (int)($id)) );
+  $row = $result->fetch(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -82,8 +84,8 @@
             <div class="form-row">
                   <div class="form-group text-center col-md-12">        
                     <figure class="figure text-center d-block mt-2">
-                        <input type="hidden" name="data_file" value="<?= $row['a_image']; ?>">
-                        <img id="imgUpload" src="../../../assets/images/imageMember/<?= $row['a_image']; ?>" width="20%" class="figure-img mx-auto img-profile rounded-circle img-thumbnail" alt="">
+                        <!-- <input type="hidden" name="data_file" value="<? // = $row['a_image']; ?>"> -->
+                        <!-- <img id="imgUpload" src="../../../assets/images/imageMember/<? // = $row['a_image']; ?>" width="20%" class="figure-img mx-auto img-profile rounded-circle img-thumbnail" alt=""> -->
                     </figure>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" name="file" id="customFile">
@@ -98,7 +100,7 @@
                   
                   <div class="form-group col-md-2">
                       <label for="password">Password</label>
-                      <input class="form-control" name="password" id="password" placeholder="Password" value="<?= $row['password']; ?>" required>
+                      <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="<?= $row['password']; ?>" required>
                   </div>
 
                   <div class="form-group col-md-4">
@@ -113,7 +115,7 @@
 
                   <div class="form-group col-md-6">
                     <label for="firstName">Email</label>
-                    <input type="text" class="form-control" name="Email" id="Email" placeholder="Email" value="<?= $row['p_Email'];?>" required>
+                    <input type="text" class="form-control" name="Email" id="Email" placeholder="Email" value="<?// = $row['p_Email'];?>" required>
                   </div>
                   
                   <div class="form-group col-md-6">
@@ -131,9 +133,8 @@
                     <label>Select Permission</label>
                     <select class="form-control" name="status" required>
                       <option value="" disabled selected>--Select Permission--</option>
-                      <option value="superadmin" <?= $row['status'] == 'superadmin' ? 'selected' : '' ?>>Super Admin</option>
-                      <option value="admin" <?= $row['status'] == 'admin' ? 'selected' : '' ?>>Admin</option>
-                      <option value="user" <?= $row['status'] == 'user' ? 'selected' : '' ?>>User</option>
+                      <option value="admin" <?= $row['role'] == 'admin' ? 'selected' : '' ?>>Admin</option>
+                      <option value="user" <?= $row['role'] == 'user' ? 'selected' : '' ?>>User</option>
                     </select>
                   </div>
 

@@ -59,7 +59,7 @@ $name = $array[$key+1];
               <p>ข้อมูลส่วนตัว</p>
             </a>
           </li>
-        <?php if($_SESSION['role'] == 'superadmin') { ?>
+        <?php if($_SESSION['role'] == 'admin') { ?>
           <li class="nav-item">
             <a href="../admin" class="nav-link <?php echo $name == 'admin' ? 'active': '' ?>">
               <i class="fas fa-users-cog nav-icon"></i>
@@ -67,50 +67,26 @@ $name = $array[$key+1];
             </a>
           </li>
         <?php } ?>
-        <?php if($_SESSION['role'] != 'user') { ?>
+        <?php if($_SESSION['role'] == 'admin') { ?>
           <li class="nav-item">
-            <a href="../personnel" class="nav-link <?php echo $name == 'personnel' ? 'active': '' ?>">
-              <i class="fas fa-glasses nav-icon"></i>
-              <p>ระบบจัดการบุคลากรอาจารย์</p>
+            <a href="../admin" class="nav-link <?php echo $name == 'product' ? 'active': '' ?>">
+              <i class="fas fa-users-cog nav-icon"></i>
+              <p>ระบบจัดการรถยนต์</p>
             </a>
           </li>
         <?php } ?>
 
 
-        <?php if($_SESSION['role'] != 'user') { ?>   
-          <li class="nav-item">
-            <a href="../student/index.php" class="nav-link <?php echo $name == 'student' ? 'active': '' ?>">
-              <i class="fas fa-user-graduate nav-icon"></i>
-              <p>ระบบจัดการนักศึกษา</p>
-            </a>
-          </li> 
-          <?php } ?>
-       
-
-        <?php if($_SESSION['role'] != 'user') { ?>
-          <li class="nav-item">
-            <a href="../articles" class="nav-link <?php echo $name == 'articles' ? 'active': '' ?>">
-              <i class="fas fa-wrench nav-icon"></i>
-              <p>ระบบจัดการข่าวสาร</p>
-            </a>
-          </li>
-        <?php } ?>
-        <?php if($_SESSION['role'] != 'user') { ?>
-          <li class="nav-item">
-            <a href="../contacts" class="nav-link <?php echo $name == 'contacts' ? 'active': '' ?>">
+        <?php // if($_SESSION['role'] != 'user') { ?>
+          <!-- <li class="nav-item">
+            <a href="../contacts" class="nav-link <?php // echo $name == 'contacts' ? 'active': '' ?>">
               <i class="fas fa-phone nav-icon"></i>
               <p>รายงานแบบฟอร์มติดต่อเรา</p>
             </a>
-          </li>
-          <?php } ?>
+          </li> -->
+          <?php // } ?>
 
-          <li class="nav-item">
-            <a href="../news" class="nav-link <?php echo $name == 'news' ? 'active': '' ?>">
-              <i class="fas fa-newspaper nav-icon"></i>
-              <!-- <i class="fa fa-bar-chart" aria-hidden="true"></i> -->
-              <p>ข่าวสาร/กิจกรรม ย้อนหลัง</p>
-            </a>
-          </li>
+
           
           <li class="nav-header">Account Settings</li>
           <li class="nav-item">

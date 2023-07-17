@@ -1,43 +1,50 @@
 <?php include_once('../authen.php') ?>
 <?php
     if(isset($_POST['submit'])){
-        $sql_check_username = "SELECT * FROM `admin` WHERE `username` = '".$_POST['username']."' ";
-        $check_username = $conn->query($sql_check_username);
-        $last_id = $conn->insert_id;
+        // $sql_check_username = "SELECT * FROM `admin` WHERE `username` = '".$_POST['username']."' ";
+        $sql_check_username = "SELECT * FROM `user` WHERE `username` = :username ";
+        $check_username = $conn->prepare($sql_check_username);
+        $check_username->execute(array(":username" => $_POST['username']));
+        // $check_username = $conn->query($sql_check_username);
+        // $last_id = $conn->lastInsertId();
         
         $temp = explode('.',$_FILES['file']['name']); //explode ฟังค์ชั่นเป็น การแยก จุด ระหว่าง ชื่อไฟล์.นามสกุล ตาม index[0=ชื่อไฟล์][1=นามสกุล]
         $new_name = round(microtime(true)*9999) . '.' . end($temp); //ใช้ end() เป็นการเลือก index[] ตัวสุดท้าย เพื่อเลือกนามสกุล
         $url = '../../../assets/images/imageMember/'.$new_name;
-            if(move_uploaded_file($_FILES['file']['tmp_name'], $url) && !$check_username->num_rows){
+            if(move_uploaded_file($_FILES['file']['tmp_name'], $url) && !$check_username->rowCount()){
 
                 $hashed = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 
 
-                $str_sql = $conn->query("SELECT * FROM `admin` WHERE status = 'superadmin' ");
-                $int_rows = $str_sql->num_rows;
+                $str_sql = $conn->prepare("SELECT * FROM `user` WHERE role = :admin ");
+                $str_sql->execute(array(":admin" => 'admin'));
+                $int_rows = $str_sql->rowCount();
 
                 
                 if($int_rows <= 2){
-                    $sql2 = "INSERT INTO `profile` (`p_Phone`,`p_Address`,`p_Email`) 
-                            VALUES('".$_POST['p_Phone']."',
-                                    '".$_POST['p_Address']."',
-                                    '".$_POST['p_Email']."'); ";
-                    $result2 = $conn->query($sql2) or die($conn->error);
-                    $last_id = $conn->insert_id;
+                    $sql = "INSERT INTO `user` (`first_name`, `last_name`, `username`, `password`, `role`, `a_image`, `last_login`, `updated_at`, `created_at`) 
+                            VALUES (
+                                   :first_name, 
+                                   :last_name, 
+                                   :username,
+                                   :password,
+                                   :role,
+                                   :image,
+                                   :last_login, 
+                                   :updated_at, 
+                                   :created_at); ";
 
-                
-                    $sql = "INSERT INTO `admin` (`first_name`, `last_name`, `username`, `password`, `status`, `a_image`, profile_id, `last_login`, `updated_at`, `created_at`) 
-                            VALUES ('".$_POST['first_name']."', 
-                                    '".$_POST['last_name']."', 
-                                    '".$_POST['username']."',
-                                    '".$hashed."',
-                                    '".$_POST['status']."',
-                                    '".$new_name."',
-                                    '".$last_id."',
-                                    '".date("Y-m-d H:i:s")."', 
-                                    '".date("Y-m-d H:i:s")."', 
-                                    '".date("Y-m-d H:i:s")."'); ";
-                    $result = $conn->query($sql) or die($conn->error);
+                    $result = $conn->prepare($sql);
+                    $result->execute(array(":first_name" => $_POST['firstname'] ,
+                                            ":last_name" => $_POST['last_name'],
+                                            ":username" => $_POST['userpass'],
+                                            ":password" => $_POST['password'],
+                                            ":role" => $_POST['role'],
+                                            ":image" => $new_name,
+                                            ":last_login" => date("Y-m-d H:i:s") ,
+                                            ":updated_at" => date("Y-m-d H:i:s"),
+                                            ":created_at" => date("Y-m-d H:i:s"))
+                                    );
                     
                         if($result && $result2){
                             echo '<script> alert("เพิ่มข้อมูลสำเร็จ!")</script>'; 
@@ -57,7 +64,5 @@
     } else {
         header('Refresh:0; url=index.php');
     }
-    // echo '<pre>';
-    // print_r($_POST);
-    // echo '</pre>';
+
 ?>
