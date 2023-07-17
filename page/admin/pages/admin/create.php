@@ -10,7 +10,7 @@
         
         $temp = explode('.',$_FILES['file']['name']); //explode ฟังค์ชั่นเป็น การแยก จุด ระหว่าง ชื่อไฟล์.นามสกุล ตาม index[0=ชื่อไฟล์][1=นามสกุล]
         $new_name = round(microtime(true)*9999) . '.' . end($temp); //ใช้ end() เป็นการเลือก index[] ตัวสุดท้าย เพื่อเลือกนามสกุล
-        $url = '../../../assets/images/imageMember/'.$new_name;
+        $url = '../../../../assets/image/imageMember/'.$new_name;
             if(move_uploaded_file($_FILES['file']['tmp_name'], $url) && !$check_username->rowCount()){
 
                 $hashed = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -22,7 +22,7 @@
 
                 
                 if($int_rows <= 2){
-                    $sql = "INSERT INTO `user` (`first_name`, `last_name`, `username`, `password`, `role`, `a_image`, `last_login`, `updated_at`, `created_at`) 
+                    $sql = "INSERT INTO `user` (`first_name`, `last_name`, `username`, `password`, `role`, `image`, `last_login`, `updated_at`, `created_at`,`cus_id`,`phone`,`email`,`address`) 
                             VALUES (
                                    :first_name, 
                                    :last_name, 
@@ -32,21 +32,30 @@
                                    :image,
                                    :last_login, 
                                    :updated_at, 
-                                   :created_at); ";
+                                   :created_at,
+                                   :cus_id,
+                                   :phone,
+                                   :email,
+                                   :address); ";
 
                     $result = $conn->prepare($sql);
-                    $result->execute(array(":first_name" => $_POST['firstname'] ,
-                                            ":last_name" => $_POST['last_name'],
-                                            ":username" => $_POST['userpass'],
-                                            ":password" => $_POST['password'],
-                                            ":role" => $_POST['role'],
-                                            ":image" => $new_name,
-                                            ":last_login" => date("Y-m-d H:i:s") ,
-                                            ":updated_at" => date("Y-m-d H:i:s"),
-                                            ":created_at" => date("Y-m-d H:i:s"))
-                                    );
+                    $params = array(":first_name" => $_POST['first_name'] ,
+                    ":last_name" => $_POST['last_name'],
+                    ":username" => $_POST['username'],
+                    ":password" => $_POST['password'],
+                    ":role" => $_POST['status'],
+                    ":image" => $new_name,
+                    ":last_login" => date("Y-m-d H:i:s") ,
+                    ":updated_at" => date("Y-m-d H:i:s"),
+                    ":created_at" => date("Y-m-d H:i:s"),
+                    ":cus_id" => $_POST['cus_id'],
+                    "phone" => $_POST['phone'],
+                    "email" => $_POST['email'],
+                    "address" => $_POST['address']);
+
+                    //$result->execute($params);
                     
-                        if($result && $result2){
+                        if ($result->execute($params)){
                             echo '<script> alert("เพิ่มข้อมูลสำเร็จ!")</script>'; 
                             header('Refresh:0; url=index.php');
                         } else {
