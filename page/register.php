@@ -12,14 +12,19 @@ if (isset($_POST['submit'])) {
 
     $hashed = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-    $sql = $conn->prepare("INSERT INTO `user` (first_name, last_name, username, password, role, last_login, updated_at, created_at)
-                       VALUES (:first_name, :last_name, :username, :password, :role, :last_login, :updated_at, :created_at)");
+    $sql = $conn->prepare("INSERT INTO `user` (cus_id, first_name, last_name, username, password, role, image, email, phone, address, last_login, updated_at, created_at)
+                       VALUES (:cus_id, :first_name, :last_name, :username, :password, :role, :image, :last_login, :updated_at, :created_at)");
     $result_insert = $sql->execute(array(
+        ":cus_id" => $_POST['cus_id'],
         ":first_name" => $_POST['first_name'],
         ":last_name" => $_POST['last_name'],
         ":username" => $_POST['username'],
         ":password" => $hashed,
         ":role" => "user",
+        ":image" => "https://cdn-icons-png.flaticon.com/512/1077/1077114.png",
+        ":email" => $_POST['email'],
+        ":phone" => $_POST['phone'],
+        ":address" => $_POST['address'],
         ":last_login" => date("Y-m-d H:i:s"),
         ":updated_at" => date("Y-m-d H:i:s"),
         ":created_at" => date("Y-m-d H:i:s"),
@@ -31,7 +36,7 @@ if (isset($_POST['submit'])) {
         echo '<script> alert("ลงทะเบียนผิดพลาด!")</script>';
         header('Refresh:0; url=home.php');
     }
-    echo '<pre>', print_r($_POST), '</pre>';
+    // echo '<pre>', print_r($_POST), '</pre>';
 }
 
 ?>

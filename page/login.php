@@ -16,6 +16,7 @@ if (isset($_POST['submit'])) {
     $_SESSION['first_name'] = $row['first_name'];
     $_SESSION['last_name'] = $row['last_name'];
     $_SESSION['role'] = $row['role'];
+    $_SESSION['image'] = $row['image'];
     $_SESSION['last_login'] = $row['last_login'];
 
     $update = "UPDATE `user` SET last_login = :last_login WHERE u_id = :u_id";

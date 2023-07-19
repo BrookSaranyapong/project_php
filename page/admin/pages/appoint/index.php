@@ -9,7 +9,7 @@ $result = $conn->query($sql);
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>ระบบขายจัดการรถยนต์</title>
+  <title>ข้อมูลนัดหมาย</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Favicons -->
@@ -47,12 +47,12 @@ $result = $conn->query($sql);
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>ระบบขายจัดการรถยนต์</h1>
+              <h1>ข้อมูลนัดหมาย</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="../dashboard">Dashboard</a></li>
-                <li class="breadcrumb-item active">ระบบขายการรถยนต์</li>
+                <li class="breadcrumb-item active">ข้อมูลนัดหมาย</li>
               </ol>
             </div>
           </div>
@@ -137,13 +137,9 @@ $result = $conn->query($sql);
                       <a href="form-edit.php?id=<?php echo $row['Sale_id']; ?>" class="btn btn-sm btn-warning text-white">
                         <i class="fas fa-edit"></i>
                       </a>
-                      <?php // if($row['Car_id'] != 1) {  
-                      ?>
                       <a href="#" onclick="deleteItem(<?php echo $row['Sale_id']; ?>);" class="btn btn-sm btn-danger">
                         <i class="fas fa-trash-alt"></i>
                       </a>
-                      <?php // } 
-                      ?>
                     </td>
                   </tr>
                 <?php } ?>
