@@ -73,8 +73,9 @@
 
                 <div class="form-group text-center col-md-12">        
                     <figure class="figure text-center d-block mt-2">
-                        <!-- <input type="hidden" name="data_file" value="<? // = $row['a_image']; ?>"> -->
-                        <!-- <img id="imgUpload" src="../../../assets/images/imageMember/<? // = $row['a_image']; ?>" width="20%" class="figure-img mx-auto img-profile rounded-circle img-thumbnail" alt=""> -->
+                        <input type="hidden" name="data_file" value="<?= $row['image']; ?>">
+                        <!-- <img id="imgUpload" src="../../../assets/images/imageMember/<?//= $row['a_image']; ?>" width="20%" class="figure-img mx-auto img-profile rounded-circle img-thumbnail" alt=""> -->
+                        <img id="imgUpload" src="<?= $row['image']; ?>" width="20%" class="figure-img mx-auto img-profile rounded-circle img-thumbnail" alt="">
                     </figure>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" name="file" id="customFile">
@@ -83,32 +84,28 @@
                 </div>
 
 
-                <div class="form-group col-md-4">
-                    <label for="username">ชื่อผู้ใช้งาน</label>
-                    <input type="text" class="form-control" id="username" name="username" value="<?php echo $row['username']; ?>" disabled>
-                </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                     <label for="firstName">ชื่อ</label>
                     <input type="text" class="form-control" id="first_name" name="first_name" value="<?php echo $row['first_name']; ?>" >
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                     <label for="lastName">นามสกุล</label>
                     <input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo $row['last_name']; ?>" >
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-7">
                     <label for="email">อีเมลล์</label>
-                    <input type="email" class="form-control" id="Email" name="Email"  value="<?php // echo $row['p_Email']; ?>" >
+                    <input type="email" class="form-control" id="Email" name="Email"  value="<?php echo $row['email']; ?>" >
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-5">
                     <label for="phone">เบอร์โทรศัพท์</label>
-                    <input type="text" class="form-control" id="Phone"  name="Phone" value="<?php // echo $row['p_Phone']; ?>" >
+                    <input type="text" class="form-control" id="Phone"  name="Phone" value="<?php echo $row['phone']; ?>" >
                 </div>
                 </div>
 
                 <div class="form-group">
                     <label for="address">ที่อยู่</label>
-                    <textarea class="form-control" id="address" name="Address"  rows="5" ><?php  //echo $row['p_Address']; ?></textarea>
+                    <textarea class="form-control" id="address" name="Address"  rows="5" ><?php echo $row['address']; ?></textarea>
                 </div>
 
             <input type="hidden" name="id" value="<?php echo $_SESSION['authen_id'] ?>">

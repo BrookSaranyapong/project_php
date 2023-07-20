@@ -1,15 +1,14 @@
 <?php include_once('../authen.php');
-$sql = "SELECT * FROM `sale_car`";
+$sql = "SELECT * FROM `data_cars`";
 $result = $conn->query($sql);
 ?>
-
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>ระบบขายจัดการรถยนต์</title>
+  <title>Car Management</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Favicons -->
@@ -47,12 +46,12 @@ $result = $conn->query($sql);
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>ระบบขายจัดการรถยนต์</h1>
+              <h1>ระบบจัดการรถยนต์</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="../dashboard">Dashboard</a></li>
-                <li class="breadcrumb-item active">ระบบขายการรถยนต์</li>
+                <li class="breadcrumb-item active">ระบบจัดการรถยนต์</li>
               </ol>
             </div>
           </div>
@@ -134,12 +133,12 @@ $result = $conn->query($sql);
                     <td>รหัสประเภทรถยนต์</td>
                     <td>รหัสรายการรับรถยนต์</td>
                     <td>
-                      <a href="form-edit.php?id=<?php echo $row['Sale_id']; ?>" class="btn btn-sm btn-warning text-white">
+                      <a href="form-edit.php?id=<?php echo $row['Car_id']; ?>" class="btn btn-sm btn-warning text-white">
                         <i class="fas fa-edit"></i>
                       </a>
                       <?php // if($row['Car_id'] != 1) {  
                       ?>
-                      <a href="#" onclick="deleteItem(<?php echo $row['Sale_id']; ?>);" class="btn btn-sm btn-danger">
+                      <a href="#" onclick="deleteItem(<?php echo $row['Car_id']; ?>);" class="btn btn-sm btn-danger">
                         <i class="fas fa-trash-alt"></i>
                       </a>
                       <?php // } 

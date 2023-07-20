@@ -63,7 +63,8 @@ include_once('../authen.php');
           <h3 class="card-title">ข้อมูลส่วนตัว</h3>
         </div>
         <?php while($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
-        <img src="../../../assets/images/imageMember/<?php // echo $row['a_image']; ?>" width="250px" class="mx-auto img-profile rounded-circle img-thumbnail" >
+        <!-- <img src="../../../assets/images/imageMember/<?php // echo $row['a_image']; ?>" width="250px" class="mx-auto img-profile rounded-circle img-thumbnail" > -->
+        <img src="<?php echo $row['image']; ?>" width="250px" class="mx-auto img-profile rounded-circle img-thumbnail" >
 
         <form role="form" action="update.php" method="post">
           <div class="card-body">
@@ -82,18 +83,18 @@ include_once('../authen.php');
               </div>
               <div class="form-group col-md-6">
                   <label for="email">อีเมลล์</label>
-                  <input type="email" class="form-control" id="email" name="email"  value="<?php // echo $row['p_Email']; ?>" disabled>
+                  <input type="email" class="form-control" id="email" name="email"  value="<?php echo $row['email']; ?>" disabled>
               </div>
 
               <div class="form-group col-md-6">
                   <label for="phone">เบอร์โทรศัพท์</label>
-                  <input type="text" class="form-control" id="phone"  name="phone" value="<?php // echo $row['p_Phone']; ?>" disabled>
+                  <input type="text" class="form-control" id="phone"  name="phone" value="<?php echo $row['phone']; ?>" disabled>
               </div>
             </div>
 
             <div class="form-group">
                 <label for="address">ที่อยู่</label>
-                <textarea class="form-control" id="address" name="address"  rows="5" disabled><?php // echo $row['p_Address']; ?></textarea>
+                <textarea class="form-control" id="address" name="address"  rows="5" disabled><?php echo $row['address']; ?></textarea>
             </div>
           <?php } ?>
           </div>

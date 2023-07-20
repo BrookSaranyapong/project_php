@@ -17,7 +17,7 @@ $name = $array[$key+1];
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-          Last login: <?= date_format(new DateTIme($_SESSION['last_login']), "j F Y H:i:s" );?>
+          Last login: <?= date_format(new DateTime($_SESSION['last_login']), "j F Y H:i:s" );?>
           <i class="fa fa-th-large"></i>
         </a>
       </li>
@@ -35,7 +35,8 @@ $name = $array[$key+1];
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="../../../assets/images/imageMember/<? //= $_SESSION['image']; ?>" class="img-circle elevation-2" alt="User Image">
+          <!-- <img src="../../../assets/images/imageMember/<?//= $_SESSION['image']; ?>" class="img-circle elevation-2" alt="User Image"> -->
+          <img src="<?= $_SESSION['image']; ?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block"><?= $_SESSION['first_name'] .' '.$_SESSION['last_name']; ?></a>
@@ -69,25 +70,43 @@ $name = $array[$key+1];
         <?php } ?>
         <?php if($_SESSION['role'] == 'admin') { ?>
           <li class="nav-item">
-            <a href="../admin" class="nav-link <?php echo $name == 'product' ? 'active': '' ?>">
-              <i class="fas fa-users-cog nav-icon"></i>
+            <a href="../car" class="nav-link <?php echo $name == 'car' ? 'active': '' ?>">
+              <i class="fas fa-wrench nav-icon"></i>
               <p>ระบบจัดการรถยนต์</p>
             </a>
           </li>
         <?php } ?>
 
-
-        <?php // if($_SESSION['role'] != 'user') { ?>
-          <!-- <li class="nav-item">
-            <a href="../contacts" class="nav-link <?php // echo $name == 'contacts' ? 'active': '' ?>">
-              <i class="fas fa-phone nav-icon"></i>
-              <p>รายงานแบบฟอร์มติดต่อเรา</p>
+        <?php if($_SESSION['role'] == 'admin') { ?>
+          <li class="nav-item">
+            <a href="../product" class="nav-link <?php echo $name == 'product' ? 'active': '' ?>">
+              <i class="fas fa-shopping-cart nav-icon"></i>
+              <p>ระบบขายการรถยนต์</p>
             </a>
-          </li> -->
-          <?php // } ?>
+          </li>
+        <?php } ?>
+
+        <?php if($_SESSION['role'] == 'admin') { ?>
+          <li class="nav-item">
+            <a href="../appoint" class="nav-link <?php echo $name == 'appoint' ? 'active': '' ?>">
+            <i class="fas fa-check-circle nav-icon"></i>
+              <p>ข้อมูลนัดหมาย</p>
+            </a>
+          </li>
+        <?php } ?>
 
 
-          
+        <?php if($_SESSION['role'] != 'user') { ?>
+          <li class="nav-item">
+            <a href="../contact_car" class="nav-link <?php echo $name == 'contact_car' ? 'active': '' ?>">
+            <i class="fas fa-id-card-alt nav-icon"></i>
+              <!-- <i class="fas fa-phone nav-icon"></i> -->
+              <p>ข้อมูลทำสัญญา</p>
+            </a>
+          </li>
+        <?php } ?>
+
+
           <li class="nav-header">Account Settings</li>
           <li class="nav-item">
             <a href="/project_car2hand/page/home" class="nav-link">

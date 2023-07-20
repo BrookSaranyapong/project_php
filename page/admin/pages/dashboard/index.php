@@ -72,10 +72,11 @@
             <div class="card card-widget widget-user">
               <!-- Add the bg color to the header using any of the bg-* classes -->
               <div class="widget-user-header bg-info-active text-center">
-                <h3 class="widget-user-username">Page All Views</h3>
+                <h3 class="widget-user-username">All Page</h3>
               </div>
               <div class="widget-user-image">
-                <img class="img-circle elevation-2" src="../../../assets/images/logo/it.png" alt="User Avatar">
+                <!-- <img class="img-circle elevation-2" src="../../../assets/images/logo/it.png" alt="User Avatar"> -->
+                <img class="img-circle elevation-2" src="<?php echo $_SESSION['image'] ?>" alt="User Avatar">
               </div>
               <div class="card-footer">
                 <div class="row">
