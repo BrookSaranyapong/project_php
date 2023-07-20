@@ -84,9 +84,11 @@
             <div class="form-row">
                   <div class="form-group text-center col-md-12">        
                     <figure class="figure text-center d-block mt-2">
-                        <!-- <input type="hidden" name="data_file" value="<? // = $row['a_image']; ?>"> -->
-                        <!-- <img id="imgUpload" src="../../../assets/images/imageMember/<? // = $row['a_image']; ?>" width="20%" class="figure-img mx-auto img-profile rounded-circle img-thumbnail" alt=""> -->
+                        <input type="hidden" name="data_file" value="<?= $row['image']; ?>">
+                        <!-- <img id="imgUpload" src="../../../assets/images/imageMember/<? //= $row['a_image']; ?>" width="20%" class="figure-img mx-auto img-profile rounded-circle img-thumbnail" alt="">  -->
+                        <img src="../../../../assets/image/imageMember/<?= $row['image']?>" class="figure-img mx-auto img-profile rounded-circle img-thumbnail" alt="profile picture" width="20%"><br><br>
                     </figure>
+                    
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" name="file" id="customFile">
                         <label class="custom-file-label" for="customFile">แก้ไขรูปภาพ</label>
@@ -113,20 +115,25 @@
                     <input type="text" class="form-control" name="last_name" id="lastName" placeholder="LastName" value="<?= $row['last_name'];?>" required>
                   </div>
 
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-4">
+                    <label for="firstName">รหัสบัตรประชาชน</label>
+                    <input type="text" class="form-control" name="cus_id" id="cus_id" placeholder="รหัสบัตรประชาชน" value="<?= $row['cus_id'];?>" required>
+                  </div>
+
+                  <div class="form-group col-md-4">
                     <label for="firstName">Email</label>
-                    <input type="text" class="form-control" name="Email" id="Email" placeholder="Email" value="<?// = $row['p_Email'];?>" required>
+                    <input type="text" class="form-control" name="email" id="Email" placeholder="Email" value="<?= $row['email'];?>" required>
                   </div>
                   
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-4">
                     <label for="lastName">เบอร์โทรศัพท์</label>
-                    <input type="text" class="form-control" name="Phone" id="Phone" placeholder="Phone" value="<?= $row['p_Phone'];?>" required>
+                    <input type="text" class="form-control" name="phone" id="Phone" placeholder="Phone" value="<?= $row['phone'];?>" required>
                   </div>
               </div>
 
                   <div class="form-group">
                       <label for="address">ที่อยู่</label>
-                      <textarea class="form-control" name="Address" id="Address"  rows="5"><?= $row['p_Address'];?></textarea>
+                      <textarea class="form-control" name="address" id="Address"  rows="5"><?= $row['address'];?></textarea>
                   </div>
 
                   <div class="form-group">

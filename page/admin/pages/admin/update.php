@@ -7,9 +7,11 @@
                 echo '<script> alert(" ต้องอัพโหลดเป็นไฟล์ภาพเท่านั้น! ")</script>';
                 header('Refresh:0; url=index.php');
             }
+            unlink('../../../../assets/image/imageMember/'.$image_name); //delete old image if has new
+
             $temp = explode('.',$_FILES['file']['name']);
             $image_name = round(microtime(true)*9999) . '.' . end($temp);
-            $url_upload = '../../../assets/images/imageMember/' . $image_name;
+            $url_upload = '../../../../assets/image/imageMember/' . $image_name;
             if( !move_uploaded_file($_FILES['file']['tmp_name'], $url_upload)) {
                 echo '<script> alert(" ไม่สามารถอัพโหลดรูปภาพใหม่ได้ โปรดลองอีกครั้ง! ")</script>';
                 header('Refresh:0; url=index.php'); 
@@ -31,15 +33,33 @@
 
 
             $sql = "UPDATE `user` 
-                    SET C_id =    ?,
-                        first_name =    ?,
-                        last_name =     ?,
-                        password =      ?,
-                        role =          ?,
-                        updated_at =    ?,
-                    WHERE u_id = ? ";
+                    SET cus_id =        '".$_POST['cus_id']."',
+                        first_name =    '".$_POST['first_name']."',
+                        last_name =     '".$_POST['last_name']."',
+                        password =      '".$_POST['password']."',
+                        role =          '".$_POST['status']."',
+                        image =         '".$image_name."',
+                        email =         '".$_POST['email']."',
+                        phone =         '".$_POST['phone']."',
+                        address =       '".$_POST['address']."',
+                        updated_at =    '".date('Y-m-d H:i:s')."'
+                        WHERE u_id =    '".$_POST['id']."' ";
         $result = $conn->prepare($sql);
-        $result->execute([$_POST['first_name'],$_POST['last_name'],$_POST['password'],$image_name,date('Y-m-d H:i:s'),$_POST['role'],$_POST['id']]);
+        
+        // $params = array(":first_name" => $_POST['first_name'] ,
+        //             ":last_name" => $_POST['last_name'],
+        //             ":password" => $_POST['password'],
+        //             ":role" => $_POST['status'],
+        //             ":image" => $image_name,
+        //             ":updated_at" => date("Y-m-d H:i:s"),
+        //             ":cus_id" => $_POST['cus_id'],
+        //             "phone" => $_POST['phone'],
+        //             "email" => $_POST['email'],
+        //             "address" => $_POST['address'],
+        //             "u_id" => $_POST['id']);
+
+        //$result->execute([$_POST['cus_id'],$_POST['first_name'],$_POST['last_name'],$_POST['password'],$_POST['status'],$image_name,$_POST['email'],$_POST['phone'],$_POST['address'],date('Y-m-d H:i:s')]);
+        $result->execute();
             if($result){
                 echo '<script> alert("แก้ไขข้อมูลสำเร็จ!")</script>'; 
                 header('Refresh:0; url=index.php');

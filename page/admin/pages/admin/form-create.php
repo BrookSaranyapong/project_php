@@ -75,7 +75,7 @@
                   <label class="custom-file-label" for="customFile">Choose file</label>
               </div>
               <figure class="figure text-center d-none mt-2">
-                  <img id="imgUpload" class="figure-img img-fluid rounded" alt="">
+                  <img id="imgUpload" class="figure-img img-fluid rounded" alt="" width="128" height="128">
               </figure>
             </div>
 
@@ -96,19 +96,23 @@
               <label for="lastName">นามสกุล</label>
               <input type="text" class="form-control" name="last_name" id="lastName" placeholder="LastName" required>
             </div>
+            <div class="form-group">
+              <label for="lastName">รหัสบัตรประชาชน</label>
+              <input type="text" class="form-control" name="cus_id" id="customerID" placeholder="รหัสบัตรประชาชน" required>
+            </div>
 
             <div class="form-group">
               <label for="firstName">Email</label>
-              <input type="text" class="form-control" name="p_Email" id="Email" placeholder="Email" required>
+              <input type="text" class="form-control" name="email" id="Email" placeholder="Email" required>
             </div>
             <div class="form-group">
               <label for="lastName">เบอร์โทรศัพท์</label>
-              <input type="text" class="form-control" name="p_Phone" id="phone" placeholder="Phone" required>
+              <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone" required>
             </div>
 
             <div class="form-group">
                 <label for="address">ที่อยู่</label>
-                <textarea class="form-control" name="p_Address" id="Address"   rows="10"></textarea>
+                <textarea class="form-control" name="address" id="Address"   rows="10"></textarea>
             </div>
 
             
