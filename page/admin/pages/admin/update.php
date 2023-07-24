@@ -31,7 +31,7 @@
 
 
             $sql = "UPDATE `user` 
-                    SET C_id =    ?,
+                    SET cus_id =    ?,
                         first_name =    ?,
                         last_name =     ?,
                         password =      ?,

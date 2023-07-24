@@ -2,7 +2,7 @@
 <?php
     if(isset($_POST['submit'])){
         // $sql_check_username = "SELECT * FROM `admin` WHERE `username` = '".$_POST['username']."' ";
-        $sql_check_username = "SELECT * FROM `user` WHERE `username` = :username ";
+        $sql_check_username = "SELECT * FROM `auth_cars` WHERE `username` = :username ";
         $check_username = $conn->prepare($sql_check_username);
         $check_username->execute(array(":username" => $_POST['username']));
         // $check_username = $conn->query($sql_check_username);
@@ -16,13 +16,13 @@
                 $hashed = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 
 
-                $str_sql = $conn->prepare("SELECT * FROM `user` WHERE role = :admin ");
+                $str_sql = $conn->prepare("SELECT * FROM `auth_cars` WHERE role = :admin ");
                 $str_sql->execute(array(":admin" => $_SESSION['role']));
                 $int_rows = $str_sql->rowCount();
 
                 
                 if($int_rows <= 2){
-                    $sql = "INSERT INTO `user` (`cus_id`,
+                    $sql = "INSERT INTO `auth_cars` (`cus_id`,
                                                 `first_name`, 
                                                 `last_name`, 
                                                 `username`, 
