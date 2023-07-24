@@ -5,11 +5,9 @@
     if (isset($id) && $id != 1) {
         $sql = "DELETE FROM `auth_cars` WHERE `auth_cars`.`u_id` = ? ";
         $result = $conn->prepare($sql);
-        $result->bindParam(':id', $id);
-        $result->execute();
-        
-        //if($conn->$result->rowCount() > 0){
-        if($result->execute()){
+        $result->execute([$id]);
+
+        if($conn->$result->rowCount() > 0){
             echo '<script> alert("Finished Deleting!")</script>'; 
             header('Refresh:0; url=index.php');
         } else {
