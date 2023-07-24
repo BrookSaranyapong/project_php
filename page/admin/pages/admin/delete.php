@@ -3,14 +3,7 @@
 
     $id = $_GET['id'];
     if (isset($id) && $id != 1) {
-        $sqlprofile = "SELECT image FROM `user` WHERE u_id = :id ";
-        $stmt = $conn->prepare($sqlprofile);
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-        $rowprofile = $stmt->fetch(PDO::FETCH_ASSOC);
-        unlink('../../../../assets/image/imageMember/'.$rowprofile['image']);
-
-        $sql = "DELETE FROM `user` WHERE u_id = :id ";
+        $sql = "DELETE FROM `auth_cars` WHERE `auth_cars`.`u_id` = ? ";
         $result = $conn->prepare($sql);
         $result->bindParam(':id', $id);
         $result->execute();

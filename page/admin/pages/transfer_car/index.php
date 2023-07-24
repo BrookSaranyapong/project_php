@@ -1,15 +1,15 @@
 <?php include_once('../authen.php');
-$sql = "SELECT * FROM `appoint_cars`";
+$sql = "SELECT * FROM `transfer_cars`";
 $result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
 <html>
 
-<head>
+<head> 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>ข้อมูลนัดหมาย</title>
+  <title>ระบบขายจัดการรถยนต์</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Favicons -->
@@ -47,12 +47,12 @@ $result = $conn->query($sql);
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>ข้อมูลนัดหมาย</h1>
+              <h1>ระบบขายจัดการรถยนต์</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="../dashboard">Dashboard</a></li>
-                <li class="breadcrumb-item active">ข้อมูลนัดหมาย</li>
+                <li class="breadcrumb-item active">ระบบขายการรถยนต์</li>
               </ol>
             </div>
           </div>
@@ -74,10 +74,14 @@ $result = $conn->query($sql);
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>รหัสนัดหมาย</th>
-                  <th>วันที่นัดหมาย</th>
-                  <th>รหัสประเภทรถยนต์</th>
-                  <th>เลขบัตรประชาชน</th>
+                  <th>รหัสการโอนกรรมสิทธิ์</th>
+                  <th>วันที่โอนกรรมสิทธิ์</th>
+                  <th>เวลา</th>
+                  <th>คู่มือจดทะเบียนรถ</th>
+                  <th>สำเนาบัตรประชาชนเจ้าของรถ</th>
+                  <th>สำเนาบัตรประชาชนผู้รับโอน</th>
+                  <th>หนังสือมอบอำนาจ</th>
+                  <th>รหัสทำสัญญา</th>
                   <th>Edit</th>
                 </tr>
               </thead>
@@ -88,16 +92,21 @@ $result = $conn->query($sql);
                   $num += 1;
                 ?>
                   <tr>
+                    <!-- <td><?php // echo $num; 
+                              ?></td> -->
                     <td><?php echo $num; ?></td>
-                    <td>รหัสนัดหมาย</td>
-                    <td>วันที่นัดหมาย</td>
-                    <td>รหัสประเภทรถยนต์</td>
-                    <td>เลขบัตรประชาชน</td>
+                    <td><?php echo $row['Tran_data'];?></td>
+                    <td><?php echo $row['Tran_time']; ?></td>
+                    <td><img class="img-fluid d-block mx-auto" src="<?php echo $row['Tran_carregis']?>" width="25%" alt=""></td>
+                    <td><img class="img-fluid d-block mx-auto" src="<?php echo $row['Tran_idcard']?>" width="25%" alt=""></td>
+                    <td><img class="img-fluid d-block mx-auto" src="<?php echo $row['Tran_trans']?>" width="25%" alt=""></td>
+                    <td><img class="img-fluid d-block mx-auto" src="<?php echo $row['Tran_attorney']?>" width="25%" alt=""></td>
+                    <td><?php echo $row['Cont_id'];?></td>
                     <td>
-                      <a href="form-edit.php?id=<?php echo $row['App_id']; ?>" class="btn btn-sm btn-warning text-white">
+                      <a href="form-edit.php?id=<?php echo $row['Tran_id']; ?>" class="btn btn-sm btn-warning text-white">
                         <i class="fas fa-edit"></i>
                       </a>
-                      <a href="#" onclick="deleteItem(<?php echo $row['App_id']; ?>);" class="btn btn-sm btn-danger">
+                      <a href="#" onclick="deleteItem(<?php echo $row['Tran_id']; ?>);" class="btn btn-sm btn-danger">
                         <i class="fas fa-trash-alt"></i>
                       </a>
                     </td>

@@ -1,5 +1,8 @@
 <?php include_once('../authen.php');
-$sql = "SELECT * FROM `sale_car`";
+$sql = "SELECT *
+FROM `sale_cars`
+RIGHT JOIN `information_cars` ON `information_cars`.`Car_id` = `sale_cars`.`Car_id`";
+// INNER JOIN type_car ON sale_car.Ty_id = type_car.Ty_id
 $result = $conn->query($sql);
 ?>
 
@@ -74,21 +77,19 @@ $result = $conn->query($sql);
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>ยี่ห้อ</th>
-                  <th>เลขทะเบียน</th>
-                  <th>Chassis_Number</th>
+                  <th>รหัสขายรถยนต์</th>
+                  <th>วันที่ประกาศขาย</th>
+                  <th>ราคาขาย</th>
+                  <th>ชื่อเจ้าของรถ</th>
+                  <th>นามสกุล</th>
+                  <th>เลขบัตรประชาชน</th>
                   <th>สี</th>
                   <th>รุ่น</th>
                   <th>เลขไมล์</th>
-                  <th>วันที่จดทะเบียนรถยน</th>
+                  <th>วันที่จดทะเบียนรถยนต์</th>
+                  <th>รหัสรถยนต์</th>
                   <th>ปีที่ผลิต</th>
-                  <th>ราคาที่รับมา</th>
-                  <th>ระบบเกียร์</th>
-                  <th>ความจุเครื่องยนต์</th>
-                  <th>รหัสประเภทรถยนต์</th>
-                  <th>รหัสรายการรับรถยนต์</th>
                   <th>Edit</th>
-
                 </tr>
               </thead>
               <tbody>
@@ -120,30 +121,28 @@ $result = $conn->query($sql);
                     ?></td> -->
 
                     <td><?php echo $num; ?></td>
-                    <td>ยี่ห้อ</td>
-                    <td>เลขทะเบียน</td>
-                    <td>Chassis_Number</td>
-                    <td>สี</td>
-                    <td>รุ่น</td>
-                    <td>เลขไมล์</td>
-                    <td>วันที่จดทะเบียนรถยน</td>
-                    <td>ปีที่ผลิต</td>
-                    <td>ราคาที่รับมา</td>
-                    <td>ระบบเกียร์</td>
-                    <td>ความจุเครื่องยนต์</td>
-                    <td>รหัสประเภทรถยนต์</td>
-                    <td>รหัสรายการรับรถยนต์</td>
+                    <td><img class="img-fluid d-block mx-auto" src="<?php // echo $row['Tran_carregis']
+                                                                    ?>" width="25%" alt="">รูป</td>
+                    <td><?php echo date_format(new DateTime($row['Sale_time']), "j F Y H:i:s"); ?></td>
+                    <td><?php echo $row['Sale_price']; ?></td>
+                    <td><?php echo $row['Sale_name']; ?></td>
+                    <td><?php echo $row['Car_brand']; ?></td>
+                    <td><?php echo $row['Car_regisnum']; ?></td>
+                    <td><?php echo $row['Car_chassi']; ?></td>
+                    <td><?php echo $row['Car_model']; ?></td>
+                    <td><?php echo $row['Car_chassi']; ?></td>
+                    <td><?php echo $row['Car_mile']; ?></td>
+                    <td><?php echo $row['Sale_fac']; ?></td>
+                    <td><?php echo $row['Car_gear']; ?></td>
+                    <td><?php echo $row['Car_cappaci']; ?></td>
+
                     <td>
                       <a href="form-edit.php?id=<?php echo $row['Sale_id']; ?>" class="btn btn-sm btn-warning text-white">
                         <i class="fas fa-edit"></i>
                       </a>
-                      <?php // if($row['Car_id'] != 1) {  
-                      ?>
                       <a href="#" onclick="deleteItem(<?php echo $row['Sale_id']; ?>);" class="btn btn-sm btn-danger">
                         <i class="fas fa-trash-alt"></i>
                       </a>
-                      <?php // } 
-                      ?>
                     </td>
                   </tr>
                 <?php } ?>

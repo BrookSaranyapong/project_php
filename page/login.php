@@ -5,7 +5,7 @@ if (isset($_POST['submit'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
 
-  $stmt = $conn->prepare("SELECT * FROM `user` WHERE username = :username");
+  $stmt = $conn->prepare("SELECT * FROM `auth_cars` WHERE username = :username");
   $stmt->execute(array(
     ':username' => $username
   ));
@@ -17,9 +17,10 @@ if (isset($_POST['submit'])) {
     $_SESSION['last_name'] = $row['last_name'];
     $_SESSION['role'] = $row['role'];
     $_SESSION['image'] = $row['image'];
+    $_SESSION['page_visit'] = $row['views'];
     $_SESSION['last_login'] = $row['last_login'];
 
-    $update = "UPDATE `user` SET last_login = :last_login WHERE u_id = :u_id";
+    $update = "UPDATE `auth_cars` SET last_login = :last_login WHERE u_id = :u_id";
     $stmt_update = $conn->prepare($update);
     $result_update = $stmt_update->execute(array(":last_login" => date("Y-m-d H:i:s"), ":u_id" => $row['u_id']));
     if ($result_update) {

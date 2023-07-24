@@ -6,14 +6,14 @@ require_once('authen.php');
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $sql_check_username = "SELECT * FROM `user` WHERE `username` = :username";
+    $sql_check_username = "SELECT * FROM `auth_cars` WHERE `username` = :username";
     $check_username = $conn->prepare($sql_check_username);
     $check_username->execute(array(':username' => $username));
 
     $hashed = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-    $sql = $conn->prepare("INSERT INTO `user` (cus_id, first_name, last_name, username, password, role, image, email, phone, address, last_login, updated_at, created_at)
-                       VALUES (:cus_id, :first_name, :last_name, :username, :password, :role, :image, :last_login, :updated_at, :created_at)");
+    $sql = $conn->prepare("INSERT INTO `auth_cars` (cus_id, first_name, last_name, username, password, role, image, email, phone, address, last_login, updated_at, created_at)
+                       VALUES (:cus_id, :first_name, :last_name, :username, :password, :role, :image, :email, :phone, :address, :last_login, :updated_at, :created_at)");
     $result_insert = $sql->execute(array(
         ":cus_id" => $_POST['cus_id'],
         ":first_name" => $_POST['first_name'],

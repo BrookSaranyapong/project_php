@@ -33,17 +33,13 @@
 
 
             $sql = "UPDATE `user` 
-                    SET cus_id =        '".$_POST['cus_id']."',
-                        first_name =    '".$_POST['first_name']."',
-                        last_name =     '".$_POST['last_name']."',
-                        password =      '".$_POST['password']."',
-                        role =          '".$_POST['status']."',
-                        image =         '".$image_name."',
-                        email =         '".$_POST['email']."',
-                        phone =         '".$_POST['phone']."',
-                        address =       '".$_POST['address']."',
-                        updated_at =    '".date('Y-m-d H:i:s')."'
-                        WHERE u_id =    '".$_POST['id']."' ";
+                    SET cus_id =    ?,
+                        first_name =    ?,
+                        last_name =     ?,
+                        password =      ?,
+                        role =          ?,
+                        updated_at =    ?,
+                    WHERE u_id = ? ";
         $result = $conn->prepare($sql);
         
         // $params = array(":first_name" => $_POST['first_name'] ,
