@@ -1,5 +1,5 @@
 <?php include_once('../authen.php');
-$sql = "SELECT * FROM `sale_car`";
+$sql = "SELECT * FROM `sale_cars`";
 $result = $conn->query($sql);
 ?>
 
@@ -137,13 +137,9 @@ $result = $conn->query($sql);
                       <a href="form-edit.php?id=<?php echo $row['Sale_id']; ?>" class="btn btn-sm btn-warning text-white">
                         <i class="fas fa-edit"></i>
                       </a>
-                      <?php // if($row['Car_id'] != 1) {  
-                      ?>
                       <a href="#" onclick="deleteItem(<?php echo $row['Sale_id']; ?>);" class="btn btn-sm btn-danger">
                         <i class="fas fa-trash-alt"></i>
                       </a>
-                      <?php // } 
-                      ?>
                     </td>
                   </tr>
                 <?php } ?>

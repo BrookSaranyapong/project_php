@@ -1,6 +1,6 @@
 <?php 
     include_once('../authen.php');
-    $sql = "SELECT * FROM contacts";
+    $sql = "SELECT * FROM contract_cars";
     $result = $conn->query($sql);
 
 ?>
@@ -72,26 +72,38 @@
                 <thead>
                 <tr class="text-center">
                     <th>No.</th>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                    <th>Message</th>
-                    <th>Created</th>
+                    <th>รหัสทำสัญญา.</th>
+                    <th>วันที่ทำสัญญา</th>
+                    <th>เวลาทำสัญญา</th>
+                    <th>สถานที่จัดทำสัญญา</th>
+                    <th>สถานะ</th>
+                    <th>รหัสโอนค่ามัดจำ</th>
+                    <th>Edit</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php 
                     $num = 0;
-                    while( $row = $result->fetch_assoc()){ 
+                    while( $row = $result->fetch(PDO::FETCH_ASSOC)){ 
                     $num += 1;
                 ?>
                 <tr>
                     <td><?= $num; ?></td>
-                    <td><?= $row['name']; ?></td>
-                    <td><?= $row['phone']; ?></td>
-                    <td><?= $row['email']; ?></td>
-                    <td><?= $row['detail']; ?></td>
-                    <td><?= date_format(new DateTime($row['created_at']),"j F Y | H:i" ); ?></td>
+                    <td><?= $row['Cont_id']; ?></td>
+                    <td><?= $row['Cont_date']; ?></td>
+                    <td><?= $row['Cont_time']; ?></td>
+                    <td><?= $row['Cont_location']; ?></td>
+                    <td><?= $row['Cont_Payment']; ?></td>
+                    <td><?= $row['Cont_Status']; ?></td>
+                    <td><?= $row['Dep_id']; ?></td>
+                    <td>
+                      <a href="form-edit.php?id=<?php echo $row['Cont_id']; ?>" class="btn btn-sm btn-warning text-white">
+                        <i class="fas fa-edit"></i>
+                      </a>
+                      <a href="#" onclick="deleteItem(<?php echo $row['Cont_id']; ?>);" class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash-alt"></i>
+                      </a>
+                    </td>
                 </tr>
                 <?php } ?>
                 </tbody>

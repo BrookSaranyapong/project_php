@@ -3,7 +3,7 @@
 
     $id = $_GET['id'];
     if (isset($id) && $id != 1) {
-        $sql = "DELETE FROM `user` WHERE `admin`.`id` = ? ";
+        $sql = "DELETE FROM `auth_cars` WHERE `auth_cars`.`u_id` = ? ";
         $result = $conn->prepare($sql);
         $result->execute([$id]);
         

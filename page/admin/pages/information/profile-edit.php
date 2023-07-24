@@ -1,8 +1,8 @@
 <?php include_once('../authen.php') ?>
 <?php 
-  $sql = "SELECT * FROM `user` WHERE `u_id` = '".$_SESSION['authen_id']."' ";
-  $result = $conn->query($sql);
-  
+  $sql = "SELECT * FROM `auth_cars` WHERE `u_id` = ? ";
+  $result = $conn->prepare($sql);
+  $result->execute([$_SESSION['authen_id']]);
 ?>
 
 <!DOCTYPE html>

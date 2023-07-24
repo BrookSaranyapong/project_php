@@ -1,8 +1,5 @@
 <?php 
     include_once('../authen.php'); 
-
-    // $sql = "SELECT * FROM `admin` ";
-    // $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html>
