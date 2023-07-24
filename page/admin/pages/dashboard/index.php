@@ -73,7 +73,7 @@
               </div>
               <div class="widget-user-image">
                 <!-- <img class="img-circle elevation-2" src="../../../assets/images/logo/it.png" alt="User Avatar"> -->
-                <img class="img-circle elevation-2" src="<?php echo $_SESSION['image'] ?>" alt="User Avatar">
+                <img class="img-circle elevation-2" src="../../../../assets/image/imageMember/<?php echo $_SESSION['image'] ?>" alt="User Avatar">
               </div>
               <div class="card-footer">
                 <div class="row">

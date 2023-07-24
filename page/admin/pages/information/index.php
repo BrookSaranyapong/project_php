@@ -65,7 +65,7 @@
         </div>
         <?php while($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
         <!-- <img src="../../../assets/images/imageMember/<?php // echo $row['a_image']; ?>" width="250px" class="mx-auto img-profile rounded-circle img-thumbnail" > -->
-        <img src="<?php echo $row['image']; ?>" width="250px" class="mx-auto img-profile rounded-circle img-thumbnail" >
+        <img src="../../../../assets/image/imageMember/<?php echo $row['image']; ?>" width="250px" class="mx-auto img-profile rounded-circle img-thumbnail" >
 
         <form role="form" action="update.php" method="post">
           <div class="card-body">
@@ -82,12 +82,16 @@
                   <label for="lastName">นามสกุล</label>
                   <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo $row['last_name']; ?>" disabled>
               </div>
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-4">
+                    <label for="cus_id">รหัสบัตรประชาชน</label>
+                    <input type="text" class="form-control" name="cus_id" id="cus_id" placeholder="รหัสบัตรประชาชน" value="<?= $row['cus_id'];?>" disabled>
+                  </div>
+              <div class="form-group col-md-4">
                   <label for="email">อีเมลล์</label>
                   <input type="email" class="form-control" id="email" name="email"  value="<?php echo $row['email']; ?>" disabled>
               </div>
 
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-4">
                   <label for="phone">เบอร์โทรศัพท์</label>
                   <input type="text" class="form-control" id="phone"  name="phone" value="<?php echo $row['phone']; ?>" disabled>
               </div>

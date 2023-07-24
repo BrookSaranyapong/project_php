@@ -5,30 +5,6 @@ $key = array_search("pages", $array);
 $name = $array[$key + 1];
 ?>
 
-<style>
-  .sidenav {
-    height: 100%;
-    width: 200px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-  }
-
-  .sidenav .nav-link {
-    color: #818181;
-  }
-
-  .sidenav .nav-link:hover {
-    color: #f1f1f1;
-  }
-</style>
-
-
 <nav class="main-header navbar navbar-expand border-bottom navbar-dark bg-info">
   <!-- Left navbar links -->
   <ul class="navbar-nav">
