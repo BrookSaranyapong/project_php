@@ -102,7 +102,7 @@
                   
                   <div class="form-group col-md-2">
                       <label for="password">Password</label>
-                      <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="<?= $row['password']; ?>" required>
+                      <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                   </div>
 
                   <div class="form-group col-md-4">
@@ -116,7 +116,7 @@
                   </div>
 
                   <div class="form-group col-md-4">
-                    <label for="firstName">รหัสบัตรประชาชน</label>
+                    <label for="cus_id">รหัสบัตรประชาชน</label>
                     <input type="text" class="form-control" name="cus_id" id="cus_id" placeholder="รหัสบัตรประชาชน" value="<?= $row['cus_id'];?>" required>
                   </div>
 

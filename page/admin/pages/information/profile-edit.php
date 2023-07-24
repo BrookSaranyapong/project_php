@@ -68,14 +68,14 @@
         
 
         <div class="card-body">
-            <form role="form" action="update.php" method="post" enctype="multipart/form-data">
+            <form role="form" action="update.php" method="POST" enctype="multipart/form-data">
             <div class="form-row">
 
                 <div class="form-group text-center col-md-12">        
                     <figure class="figure text-center d-block mt-2">
                         <input type="hidden" name="data_file" value="<?= $row['image']; ?>">
                         <!-- <img id="imgUpload" src="../../../assets/images/imageMember/<?//= $row['a_image']; ?>" width="20%" class="figure-img mx-auto img-profile rounded-circle img-thumbnail" alt=""> -->
-                        <img id="imgUpload" src="<?= $row['image']; ?>" width="20%" class="figure-img mx-auto img-profile rounded-circle img-thumbnail" alt="">
+                        <img id="imgUpload" src="../../../../assets/image/imageMember/<?= $row['image']; ?>" width="20%" class="figure-img mx-auto img-profile rounded-circle img-thumbnail" alt="">
                     </figure>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" name="file" id="customFile">
@@ -86,26 +86,42 @@
 
                 <div class="form-group col-md-6">
                     <label for="firstName">ชื่อ</label>
-                    <input type="text" class="form-control" id="first_name" name="first_name" value="<?php echo $row['first_name']; ?>" >
+                    <input type="text" class="form-control" id="first_name" name="first_name" value="<?php echo $row['first_name']; ?>" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="lastName">นามสกุล</label>
-                    <input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo $row['last_name']; ?>" >
+                    <input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo $row['last_name']; ?>" required>
                 </div>
-                <div class="form-group col-md-7">
+                <div class="form-group col-md-6">
+                  <label for="passwordold">รหัสผ่านเก่า</label>
+                  <input type="password" class="form-control" id="passwordold" name="passwordold" >
+              </div>
+              <div class="form-group col-md-3">
+                  <label for="passwordnew">รหัสผ่านใหม่</label>
+                  <input type="password" class="form-control" id="passwordnew" name="passwordnew">
+              </div>
+              <div class="form-group col-md-3">
+                  <label for="passwordconfirm">ยืนยันรหัสผ่านใหม่</label>
+                  <input type="password" class="form-control" id="passwordconfirm" name="passwordconfirm">
+              </div>
+                <div class="form-group col-md-4">
+                    <label for="cus_id">รหัสบัตรประชาชน</label>
+                    <input type="text" class="form-control" value="<?= $row['cus_id'];?>" disabled>
+                  </div>
+                <div class="form-group col-md-4">
                     <label for="email">อีเมลล์</label>
-                    <input type="email" class="form-control" id="Email" name="Email"  value="<?php echo $row['email']; ?>" >
+                    <input type="email" class="form-control" id="email" name="email"  value="<?php echo $row['email']; ?>" required>
                 </div>
 
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-4">
                     <label for="phone">เบอร์โทรศัพท์</label>
-                    <input type="text" class="form-control" id="Phone"  name="Phone" value="<?php echo $row['phone']; ?>" >
+                    <input type="text" class="form-control" id="phone"  name="phone" value="<?php echo $row['phone']; ?>" required>
                 </div>
                 </div>
 
                 <div class="form-group">
                     <label for="address">ที่อยู่</label>
-                    <textarea class="form-control" id="address" name="Address"  rows="5" ><?php echo $row['address']; ?></textarea>
+                    <textarea class="form-control" id="address" name="address"  rows="5" required><?php echo $row['address']; ?></textarea>
                 </div>
 
             <input type="hidden" name="id" value="<?php echo $_SESSION['authen_id'] ?>">

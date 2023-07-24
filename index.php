@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <?php include('./includes/navbar.php'); ?> 
+    <?php include('page/includes/navbar.php'); ?> 
 
     
     <!-- Section Carousel -->

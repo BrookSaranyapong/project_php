@@ -36,7 +36,7 @@ $name = $array[$key+1];
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <!-- <img src="../../../assets/images/imageMember/<?//= $_SESSION['image']; ?>" class="img-circle elevation-2" alt="User Image"> -->
-          <img src="<?= $_SESSION['image']; ?>" class="img-circle elevation-2" alt="User Image">
+          <img src="../../../../assets/image/imageMember/<?= $_SESSION['image']; ?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block"><?= $_SESSION['first_name'] .' '.$_SESSION['last_name']; ?></a>

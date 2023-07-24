@@ -1,5 +1,7 @@
 <?php include_once('../authen.php') ?>
 <?php
+    $password = $_POST['password'];
+
     if(isset($_POST['submit'])){
         $image_name = $_POST['data_file'];
         if( $_FILES['file']['error'] == 0){
@@ -16,7 +18,15 @@
                 echo '<script> alert(" ไม่สามารถอัพโหลดรูปภาพใหม่ได้ โปรดลองอีกครั้ง! ")</script>';
                 header('Refresh:0; url=index.php'); 
             }
-        } $hashed = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        } 
+
+        if(!empty($password)){
+            $hashed = password_hash($password, PASSWORD_BCRYPT);
+            $sql = "UPDATE `user` 
+                    SET password =      '".$hashed."'
+                        WHERE u_id =    '".$_POST['id']."' ";
+            $conn->query($sql);
+        }
             // $sql = "UPDATE `admin` AS a
             //         INNER JOIN `profile` AS pr
             //         ON  a.profile_id = pr.p_id
@@ -36,7 +46,6 @@
                     SET cus_id =        '".$_POST['cus_id']."',
                         first_name =    '".$_POST['first_name']."',
                         last_name =     '".$_POST['last_name']."',
-                        password =      '".$_POST['password']."',
                         role =          '".$_POST['status']."',
                         image =         '".$image_name."',
                         email =         '".$_POST['email']."',
