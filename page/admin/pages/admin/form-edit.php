@@ -6,7 +6,7 @@
 
 
   // $sql = "SELECT * FROM `user` AS a INNER JOIN `profile` AS pr ON a.profile_id = pr.p_id WHERE a.id = '".$id."' ";
-  $sql = "SELECT * FROM `user` WHERE u_id = :id ";
+  $sql = "SELECT * FROM `auth_cars` WHERE u_id = :id ";
   $result = $conn->prepare($sql);
   $result->execute(array(":id" => (int)($id)) );
   $row = $result->fetch(PDO::FETCH_ASSOC);
@@ -85,8 +85,7 @@
                   <div class="form-group text-center col-md-12">        
                     <figure class="figure text-center d-block mt-2">
                         <input type="hidden" name="data_file" value="<?= $row['image']; ?>">
-                        <!-- <img id="imgUpload" src="../../../assets/images/imageMember/<? //= $row['a_image']; ?>" width="20%" class="figure-img mx-auto img-profile rounded-circle img-thumbnail" alt="">  -->
-                        <img src="../../../../assets/image/imageMember/<?= $row['image']?>" class="figure-img mx-auto img-profile rounded-circle img-thumbnail" alt="profile picture" width="20%"><br><br>
+                        <img id="imgUpload" src="../../../assets/images/imageMember/<?= $row['image']; ?>" width="20%" class="figure-img mx-auto img-profile rounded-circle img-thumbnail" alt="">
                     </figure>
                     
                     <div class="custom-file">
@@ -122,18 +121,18 @@
 
                   <div class="form-group col-md-4">
                     <label for="firstName">Email</label>
-                    <input type="text" class="form-control" name="email" id="Email" placeholder="Email" value="<?= $row['email'];?>" required>
+                    <input type="text" class="form-control" name="Email" id="Email" placeholder="Email" value="<?= $row['email'];?>" required>
                   </div>
                   
                   <div class="form-group col-md-4">
                     <label for="lastName">เบอร์โทรศัพท์</label>
-                    <input type="text" class="form-control" name="phone" id="Phone" placeholder="Phone" value="<?= $row['phone'];?>" required>
+                    <input type="text" class="form-control" name="Phone" id="Phone" placeholder="Phone" value="<?= $row['phone'];?>" required>
                   </div>
               </div>
 
                   <div class="form-group">
                       <label for="address">ที่อยู่</label>
-                      <textarea class="form-control" name="address" id="Address"  rows="5"><?= $row['address'];?></textarea>
+                      <textarea class="form-control" name="Address" id="Address"  rows="5"><?= $row['address'];?></textarea>
                   </div>
 
                   <div class="form-group">

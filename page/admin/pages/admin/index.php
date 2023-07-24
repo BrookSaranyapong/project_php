@@ -1,5 +1,5 @@
 <?php include_once('../authen.php');
-  $sql = "SELECT * FROM `user`";
+  $sql = "SELECT * FROM `auth_cars`";
   $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
@@ -71,12 +71,12 @@
             <thead>
             <tr>
               <th>No.</th>
+              <th>Image</th>
               <th>Username</th>
               <th>Permission</th>
               <th>ชื่อ</th>
               <th>นามสกุล</th>
               <th>Actions</th>
-              
             </tr>
             </thead>
             <tbody>
@@ -87,7 +87,8 @@
             ?>
               <tr>
                 <td><?php echo $num; ?></td>
-                <!-- <td><img class="img-fluid d-block mx-auto" src="../../../assets/images/imageMember/<?php //  echo $row['a_image'] ?>" width="100px" alt=""></td> -->
+                <!-- <td><img class="img-fluid d-block mx-auto" src="../../../assets/images/imageMember/<?php // echo $row['image'] ?>" width="100px" alt=""></td> -->
+                <td><img class="img-fluid d-block mx-auto" src="<?php echo $row['image'] ?>" width="10%" alt=""></td>
                 <td><?php echo $row['username']; ?></td>
                 <td><span class="badge badge-primary"><?php echo $row['role']; ?></span></td>
                 <td><?php echo $row['first_name']; ?></td>

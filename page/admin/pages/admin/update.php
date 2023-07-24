@@ -33,17 +33,13 @@
 
 
             $sql = "UPDATE `user` 
-                    SET cus_id =        '".$_POST['cus_id']."',
-                        first_name =    '".$_POST['first_name']."',
-                        last_name =     '".$_POST['last_name']."',
-                        password =      '".$_POST['password']."',
-                        role =          '".$_POST['status']."',
-                        image =         '".$image_name."',
-                        email =         '".$_POST['email']."',
-                        phone =         '".$_POST['phone']."',
-                        address =       '".$_POST['address']."',
-                        updated_at =    '".date('Y-m-d H:i:s')."'
-                        WHERE u_id =    '".$_POST['id']."' ";
+                    SET cus_id =    ?,
+                        first_name =    ?,
+                        last_name =     ?,
+                        password =      ?,
+                        role =          ?,
+                        updated_at =    ?,
+                    WHERE u_id = ? ";
         $result = $conn->prepare($sql);
         
         // $params = array(":first_name" => $_POST['first_name'] ,
@@ -58,8 +54,7 @@
         //             "address" => $_POST['address'],
         //             "u_id" => $_POST['id']);
 
-        //$result->execute([$_POST['cus_id'],$_POST['first_name'],$_POST['last_name'],$_POST['password'],$_POST['status'],$image_name,$_POST['email'],$_POST['phone'],$_POST['address'],date('Y-m-d H:i:s')]);
-        $result->execute();
+        $result->execute([$_POST['first_name'],$_POST['last_name'],$_POST['password'],$image_name,date('Y-m-d H:i:s'),$_POST['role'],$_POST['id']]);        $result->execute();
             if($result){
                 echo '<script> alert("แก้ไขข้อมูลสำเร็จ!")</script>'; 
                 header('Refresh:0; url=index.php');
