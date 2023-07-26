@@ -1,7 +1,11 @@
 <?php include_once('../authen.php');
 $sql = "SELECT *
 FROM `sale_cars`
-RIGHT JOIN `information_cars` ON `information_cars`.`Car_id` = `sale_cars`.`Car_id`";
+RIGHT JOIN `information_cars` ON `information_cars`.`Car_id` = `sale_cars`.`Car_id`
+INNER JOIN `type_cars` ON `type_cars`.`Ty_id` = `information_cars`.`Ty_id`
+INNER JOIN `model_cars` ON `model_cars`.`m_id` = `information_cars`.`m_id`
+INNER JOIN `brand_cars` ON `brand_cars`.`b_id` = `information_cars`.`b_id`
+INNER JOIN `year_cars` ON `year_cars`.`y_id` = `information_cars`.`y_id`";
 // INNER JOIN type_car ON sale_car.Ty_id = type_car.Ty_id
 $result = $conn->query($sql);
 ?>
@@ -50,12 +54,12 @@ $result = $conn->query($sql);
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>ระบบขายจัดการรถยนต์</h1>
+              <h1>ระบบการขายรถยนต์</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="../dashboard">Dashboard</a></li>
-                <li class="breadcrumb-item active">ระบบขายการรถยนต์</li>
+                <li class="breadcrumb-item active">ระบบการขายรถยนต์</li>
               </ol>
             </div>
           </div>
@@ -77,17 +81,16 @@ $result = $conn->query($sql);
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>รหัสขายรถยนต์</th>
+                  <th>ชื่อเจ้าของรถ</th>
+                  <th>เลขบัตรประชาชน</th>
                   <th>วันที่ประกาศขาย</th>
                   <th>ราคาขาย</th>
-                  <th>ชื่อเจ้าของรถ</th>
-                  <th>นามสกุล</th>
-                  <th>เลขบัตรประชาชน</th>
+                  <th>ยี่ห้อรถยนต์</th>
+                  <th>รุ่นรถยนต์</th>
                   <th>สี</th>
-                  <th>รุ่น</th>
-                  <th>เลขไมล์</th>
+                  <th>ประเภทรถยนต์</th>
+                  <th>ระบบเกียร์</th>
                   <th>วันที่จดทะเบียนรถยนต์</th>
-                  <th>รหัสรถยนต์</th>
                   <th>ปีที่ผลิต</th>
                   <th>Edit</th>
                 </tr>
@@ -96,45 +99,39 @@ $result = $conn->query($sql);
                 <?php
                 $num = 0;
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                  $num += 1;
+                $num += 1;
+                function getThaiMonthName($monthNumber) {
+                  $months = array(1 => 'มกราคม',2 => 'กุมภาพันธ์',3 => 'มีนาคม',4 => 'เมษายน',5 => 'พฤษภาคม',6 => 'มิถุนายน',7 => 'กรกฎาคม',8 => 'สิงหาคม',9 => 'กันยายน',10 => 'ตุลาคม',11 => 'พฤศจิกายน',12 => 'ธันวาคม');
+                  return isset($months[$monthNumber]) ? $months[$monthNumber] : '';
+                }
+                //get month from database
+                $databaseDatetime = $row['Sale_time'];
+                $databaseDatetime_CarTime = $row['Car_time'];
+                $ymdconvert = strtotime($databaseDatetime);
+                $ymdconvert_CarTime = strtotime($databaseDatetime_CarTime);
+                //convert to thai
+                $monthNumber = date('n', $ymdconvert);
+                $monthNumber_CarTime = date('n', $ymdconvert_CarTime);
+                $thaiMonthName = getThaiMonthName($monthNumber);
+                $thaiMonthName_CarTime = getThaiMonthName($monthNumber_CarTime);
+                //display
+                $displaydate = date('d', $ymdconvert) . ' ' . $thaiMonthName . ' ' . date('Y',$ymdconvert)+543;
+                $displaydate_CarTime = date('d', $ymdconvert_CarTime) . ' ' . $thaiMonthName_CarTime . ' ' . date('Y',$ymdconvert_CarTime)+543;
+
                 ?>
                   <tr>
-                    <!-- <td><?php // echo $num; 
-                              ?></td>
-                <td><img class="img-fluid d-block mx-auto" src="../../../assets/images/imageMember/<?php // echo $row['a_image'] 
-                                                                                                    ?>" width="100px" alt=""></td>
-                <td><?php // echo $row['username']; 
-                    ?></td>
-                <td><?php // echo $row['password']; 
-                    ?></td>
-                <td><span class="badge badge-primary"><?php // echo $row['status']; 
-                                                      ?></span></td>
-                <td><?php // echo $row['first_name']; 
-                    ?></td>
-                <td><?php // echo $row['last_name']; 
-                    ?></td>
-                <td><?php // echo $row['p_Address']; 
-                    ?></td>
-                <td><?php // echo $row['p_Phone']; 
-                    ?></td>
-                <td><?php // echo $row['p_Email']; 
-                    ?></td> -->
-
                     <td><?php echo $num; ?></td>
-                    <td><img class="img-fluid d-block mx-auto" src="<?php // echo $row['Tran_carregis']
-                                                                    ?>" width="25%" alt="">รูป</td>
-                    <td><?php echo date_format(new DateTime($row['Sale_time']), "j F Y H:i:s"); ?></td>
-                    <td><?php echo $row['Sale_price']; ?></td>
                     <td><?php echo $row['Sale_name']; ?></td>
-                    <td><?php echo $row['Car_brand']; ?></td>
-                    <td><?php echo $row['Car_regisnum']; ?></td>
-                    <td><?php echo $row['Car_chassi']; ?></td>
-                    <td><?php echo $row['Car_model']; ?></td>
-                    <td><?php echo $row['Car_chassi']; ?></td>
-                    <td><?php echo $row['Car_mile']; ?></td>
-                    <td><?php echo $row['Sale_fac']; ?></td>
-                    <td><?php echo $row['Car_gear']; ?></td>
-                    <td><?php echo $row['Car_cappaci']; ?></td>
+                    <td><?php echo $row['Cus_id'];?></td>
+                    <td><?php echo $displaydate; ?></td>
+                    <td><?php echo number_format($row['Sale_price']); ?> บาท</td>
+                    <td><?php echo $row['b_brand'];?></td>
+                    <td><?php echo $row['m_model'];?></td>
+                    <td><?php echo $row['Ty_color']; ?></td>
+                    <td><?php echo $row['Type_data'];?></td>
+                    <td><?php echo $row['Ty_gear'];?></td>
+                    <td><?php echo $displaydate_CarTime; ?></td>
+                    <td><?php echo $row['y_fac']+543; ?></td>
 
                     <td>
                       <a href="form-edit.php?id=<?php echo $row['Sale_id']; ?>" class="btn btn-sm btn-warning text-white">
