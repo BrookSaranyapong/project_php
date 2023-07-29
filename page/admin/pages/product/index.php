@@ -8,6 +8,10 @@ INNER JOIN `brand_cars` ON `brand_cars`.`b_id` = `information_cars`.`b_id`
 INNER JOIN `year_cars` ON `year_cars`.`y_id` = `information_cars`.`y_id`";
 // INNER JOIN type_car ON sale_car.Ty_id = type_car.Ty_id
 $result = $conn->query($sql);
+function getThaiMonthName($monthNumber) {
+  $months = array(1 => 'มกราคม',2 => 'กุมภาพันธ์',3 => 'มีนาคม',4 => 'เมษายน',5 => 'พฤษภาคม',6 => 'มิถุนายน',7 => 'กรกฎาคม',8 => 'สิงหาคม',9 => 'กันยายน',10 => 'ตุลาคม',11 => 'พฤศจิกายน',12 => 'ธันวาคม');
+  return isset($months[$monthNumber]) ? $months[$monthNumber] : '';
+}
 ?>
 
 <!DOCTYPE html>
@@ -100,10 +104,7 @@ $result = $conn->query($sql);
                 $num = 0;
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 $num += 1;
-                function getThaiMonthName($monthNumber) {
-                  $months = array(1 => 'มกราคม',2 => 'กุมภาพันธ์',3 => 'มีนาคม',4 => 'เมษายน',5 => 'พฤษภาคม',6 => 'มิถุนายน',7 => 'กรกฎาคม',8 => 'สิงหาคม',9 => 'กันยายน',10 => 'ตุลาคม',11 => 'พฤศจิกายน',12 => 'ธันวาคม');
-                  return isset($months[$monthNumber]) ? $months[$monthNumber] : '';
-                }
+                
                 //get month from database
                 $databaseDatetime = $row['Sale_time'];
                 $databaseDatetime_CarTime = $row['Car_time'];

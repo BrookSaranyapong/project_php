@@ -92,6 +92,11 @@ $result_CAR_INFO_SQL = $conn->query($CAR_INFO_SQL);
             </div>
 
             <div class="form-group">
+              <label for="cusidOwner">รหัสบัตรประชาชนเจ้าของรถ</label>
+              <input type="number" class="form-control" name="cusidOwner" id="cusidOwner" placeholder="รหัสบัตรประชาชนเจ้าของรถ" required>
+            </div>
+
+            <div class="form-group">
               <label>รุ่นรถยนต์</label>
               <select class="form-control" name="carmodel">
                 <option value="" disabled selected>-- เลือกรุ่นรถ --</option>
